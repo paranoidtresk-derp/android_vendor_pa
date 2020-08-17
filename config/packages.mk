@@ -12,15 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# AOSP Packages
-PRODUCT_PACKAGES += \
-    SoundRecorder \
-    WallpaperPicker \
-    LatinIME
-
-# Bluetooth Audio (A2DP)
-PRODUCT_PACKAGES += libbthost_if
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -41,10 +32,6 @@ PRODUCT_PACKAGES += \
     Longshot \
     OpenDelta
 
-# Overlays
-PRODUCT_PACKAGES += \
-    AOSPAOverlays
-
 # QTI VNDK Framework Detect
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti \
@@ -52,49 +39,6 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor \
     libqti_vndfwk_detect.vendor
 
-# Retro Music Player
-PRODUCT_PACKAGES += RetroMusicPlayer
-
-# Tools - FS
+# Shell
 PRODUCT_PACKAGES += \
-    fsck.exfat \
-    fsck.ntfs \
-    mke2fs \
-    mkfs.exfat \
-    mkfs.ntfs \
-    mount.ntfs
-
-# Tools - Misc
-PRODUCT_PACKAGES += \
-    7z \
-    awk \
-    bash \
-    bzip2 \
-    curl \
-    getcap \
-    htop \
-    lib7z \
-    libsepol \
-    nano \
-    pigz \
-    powertop \
-    setcap \
-    unrar \
-    unzip \
-    vim \
-    wget \
-    zip
-
-# Tools - openssh
-PRODUCT_PACKAGES += \
-    scp \
-    sftp \
-    ssh \
-    sshd \
-    sshd_config \
-    ssh-keygen \
-    start-ssh
-
-# Tools - rsync
-PRODUCT_PACKAGES += \
-    rsync
+    nano

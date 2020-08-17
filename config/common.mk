@@ -23,6 +23,10 @@ PRODUCT_PACKAGES += \
     adb_root
 endif
 
+# Android Beam
+PRODUCT_COPY_FILES += \
+    vendor/pa/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
+
 # ART
 # Optimize everything for preopt
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
@@ -39,6 +43,10 @@ PRODUCT_COPY_FILES += \
     vendor/pa/prebuilt/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
     vendor/pa/prebuilt/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
+
+# Bluetooth
+# Disable AAC whitelist
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.vendor.bt.a2dp.aac_whitelist=false
 
 # Filesystem
 TARGET_FS_CONFIG_GEN += vendor/pa/config/config.fs
@@ -70,8 +78,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 
 # Overlays
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/pa/overlay/common
-DEVICE_PACKAGE_OVERLAYS += vendor/pa/overlay/common
+include vendor/pa/overlay/overlays.mk
 
 # Packages
 include vendor/pa/config/packages.mk
@@ -84,11 +91,16 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/handheld_core_hardware.xml \
     vendor/pa/config/permissions/pa-default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/pa-default-permissions.xml \
-    vendor/pa/config/permissions/pa-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/pa-power-whitelist.xml \
     vendor/pa/config/permissions/privapp-permissions-pa-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-pa.xml \
     vendor/pa/config/permissions/privapp-permissions-pa-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-pa.xml \
     vendor/pa/config/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
-    vendor/pa/config/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
+    vendor/pa/config/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
+    vendor/pa/config/permissions/telephony_product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/telephony_product_privapp-permissions-qti.xml
+
+ifeq ($(TARGET_DISABLES_GAPPS), true)
+PRODUCT_COPY_FILES += \
+    vendor/gapps/system/product/etc/permissions/privapp-permissions-google-p.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-google-p.xml
+endif
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=enforce
@@ -96,7 +108,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Properties
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-BUILD_FINGERPRINT ?= google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys
+BUILD_FINGERPRINT ?= google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
