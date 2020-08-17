@@ -35,8 +35,7 @@ LOCAL_REQUIRED_MODULES := \
     AOSPASettingsProviderOverlay \
     AOSPASystemUIOverlay \
     AOSPATelephonyOverlay \
-    IconShapePebbleOverlay \
-    EmptyOverlay
+    IconShapePebbleOverlay
 
 include $(BUILD_PHONY_PACKAGE)
 
