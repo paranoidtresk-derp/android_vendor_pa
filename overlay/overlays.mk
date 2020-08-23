@@ -29,4 +29,5 @@ PRODUCT_PACKAGES += \
     AOSPASettingsProviderOverlay \
     AOSPASystemUIOverlay \
     AOSPATelephonyOverlay \
-    IconShapePebbleOverlay
+    IconShapePebbleOverlay \
+    ParanoidDozeOverlay
