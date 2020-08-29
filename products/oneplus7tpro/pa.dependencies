@@ -1,19 +1,19 @@
 [
     {
-        "remote":       "aospa",
-        "repository":   "AOSPA/android_device_oneplus_oneplus7pro",
+        "remote":       "tresk-derp",
+        "repository":   "android_device_oneplus_oneplus7pro",
         "target_path":  "device/oneplus/oneplus7pro",
         "revision":     "quartz"
     },
     {
-        "remote":       "aospa",
-        "repository":   "AOSPA/android_device_oneplus_sm8150-common",
+        "remote":       "tresk-derp",
+        "repository":   "android_device_oneplus_sm8150-common",
         "target_path":  "device/oneplus/sm8150-common",
         "revision":     "quartz"
     },
     {
-        "remote":       "github",
-        "repository":   "arter97/android_kernel_oneplus_sm8150",
+        "remote":       "tresk-derp",
+        "repository":   "android_kernel_oneplus_sm8150",
         "target_path":  "kernel/oneplus/sm8150",
         "revision":     "quartz"
     },
@@ -21,6 +21,12 @@
         "remote":       "blobs",
         "repository":   "proprietary_vendor_oneplus",
         "target_path":  "vendor/oneplus",
+        "revision":     "quartz"
+    },
+    {
+        "remote":       "mtresk-gitlab",
+        "repository":   "android_packages_apps_GoogleCamera",
+        "target_path":  "packages/apps/GoogleCamera",
         "revision":     "quartz"
     },
     {
