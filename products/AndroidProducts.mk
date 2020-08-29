@@ -84,6 +84,7 @@ COMMON_LUNCH_CHOICES += \
     pa_oneplus7pro-userdebug \
     pa_oneplus7pro-user \
     pa_oneplus7t-userdebug \
+    pa_oneplus7tpro-user \
     pa_oneplus7tpro-userdebug \
     pa_polaris-userdebug \
     pa_rolex-userdebug \
