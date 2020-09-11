@@ -12,8 +12,8 @@
         "revision":     "quartz"
     },
     {
-        "remote":       "tresk-derp",
-        "repository":   "android_device_qcom_common",
+        "remote":       "aospa",
+        "repository":   "AOSPA/android_device_qcom_common",
         "target_path":  "device/qcom/common",
         "revision":     "quartz"
     },
